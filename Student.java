@@ -42,13 +42,19 @@ public class Student {
         
 
         String re = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
-        String idre = /*"^\\d{7}(\\d{2})?$";*/"^[0-9]{7}";
+        String idre = /*"^\\d{7}(\\d{2})?$";*/"^[0-9]{1,7}$";
         String[] standing = new String[]{"Freshman", "freshman", "Sophmore", "sophmore", "Junior","junior","Senior","senior"}; 
         String email1 = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
         String addr = "^\\d+\\s[A-z]+\\s[A-z]+";
         String cityy = "^[a-zA-Z]+(?:[\\s-][a-zA-Z]+)*$";
         String[] st = new String[]{"AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND","NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"};
-        String zi = "^\\d{5}[-\\s]?(?:\\d{4})?$";
+        String sta = "^((A[LKZR])|(C[AOT])|(D[EC])|(FL)|(GA)|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EDAINSOT])|(N[EVHJMYCD])|(O[HKR])|(PA)|(RI)|(S[CD])|(T[NX])|(UT)|(V[TA])|(W[AVIY]))$";
+        /*"^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$";*/
+
+        /*^((A[LKZR])|(C[AOT])|(D[EC])|(FL)|(GA)|(HI)|(I[DLNA])|(K[SY])|(LA)|(M[EDAINSOT])|(N[EVHJMYCD])|(O[HKR])|(PA)|(RI)|(S[CD])|(T[NX])|(UT)|(V[TA])|(W[AVIY]))$ */
+
+        String zi = "^[0-9]{9}$";
+        /*"([^0-9])(?:11(1\\d)1(\\d{4}))([^0-9])$";"^\\d{5}[-\\s]?(?:\\d{4})?$";*/
 
         
         System.out.println("Student Details, Department of ILT");
@@ -107,9 +113,9 @@ public class Student {
             
 
 
-            state = JOptionPane.showInputDialog("Enter State: ");
+            state = JOptionPane.showInputDialog("Enter State: ");  /*!(Arrays.asList(st).contains(state))    !(state.matches(sta))           */
             while(!(Arrays.asList(st).contains(state))){
-                cStandings = JOptionPane.showInputDialog("Invalid State, Enter State: ");
+                state = JOptionPane.showInputDialog("Invalid State, Enter State: ");
                 
             }
             
